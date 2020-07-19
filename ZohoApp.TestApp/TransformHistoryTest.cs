@@ -134,6 +134,31 @@ namespace ZohoApp.TestApp
         }
 
         [TestMethod]
+        [TestCategory("WhiteSpace")]
+        public void TestTransform_BeginAction_WithTask1RightDot()
+        {
+            //Arrange
+            string expected = "Estuve trabajando con la historia 5587: Integración Colecturía Digital - Consulta de Estatus de Citas para Colecturía. Iniciando trabajando en desarrollar cambios para que colecturía pueda ver el estatus de las citas al enviarle un numero de cita.";
+
+            ITransformHistory transform = new TransformHistory();
+            string history = "5587: Integración Colecturía Digital - Consulta de Estatus de Citas para Colecturía";
+            string task1 = "desarrollar cambios para que colecturía pueda ver el estatus de las citas al enviarle un numero de cita.";
+
+            //Act
+            var transformHistoryDto = new TransformHistoryDto()
+            {
+                History = history,
+                FirstTask = task1,
+                Actions = Actions.Begin
+            };
+
+            string result = transform.Transform(transformHistoryDto);
+
+            //Assert.
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
         public void TestTransform_ContinueAction()
         {
             //Arrange
@@ -314,6 +339,33 @@ namespace ZohoApp.TestApp
             string history = "5587: Integración Colecturía Digital - Consulta de Estatus de Citas para Colecturía";
             string task1 = "desarrollar cambios para que colecturía pueda ver el estatus de las citas al enviarle un numero de cita";
             string task2 = "desarrollar cambios para que pueda cancelar cita";
+
+            //Act
+            var transformHistoryDto = new TransformHistoryDto()
+            {
+                History = history,
+                FirstTask = task1,
+                SecondTask = task2,
+                Actions = Actions.End
+            };
+
+            string result = transform.Transform(transformHistoryDto);
+
+            //Assert.
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [TestCategory("SecondTask")]
+        public void TestTransform_Task2_FinalDot()
+        {
+            //Arrange
+            string expected = "Estuve trabajando con la historia 5587: Integración Colecturía Digital - Consulta de Estatus de Citas para Colecturía. Terminando de trabajar en desarrollar cambios para que colecturía pueda ver el estatus de las citas al enviarle un numero de cita y además estuve trabajando en desarrollar cambios para que pueda cancelar cita.";
+
+            ITransformHistory transform = new TransformHistory();
+            string history = "5587: Integración Colecturía Digital - Consulta de Estatus de Citas para Colecturía";
+            string task1 = "desarrollar cambios para que colecturía pueda ver el estatus de las citas al enviarle un numero de cita";
+            string task2 = "desarrollar cambios para que pueda cancelar cita.";
 
             //Act
             var transformHistoryDto = new TransformHistoryDto()

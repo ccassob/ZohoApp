@@ -26,44 +26,44 @@ namespace ZohoApp.App
             {
                 if (string.IsNullOrEmpty(transformHistoryDto.SecondTask))
                 {
-                    result += $"Iniciando trabajando en {transformHistoryDto.FirstTask.Trim()}.";
+                    result += $"Iniciando trabajando en {transformHistoryDto.FirstTask.TrimEnd('.').Trim()}.";
                 }
                 else
                 {
-                    result += $"Iniciando trabajando en {transformHistoryDto.FirstTask.Trim()} y además estuve trabajando en {transformHistoryDto.SecondTask.Trim()}.";
+                    result += $"Iniciando trabajando en {transformHistoryDto.FirstTask.Trim()} y además estuve trabajando en {transformHistoryDto.SecondTask.TrimEnd('.').Trim()}.";
                 }
             }
             else if (transformHistoryDto.Actions == Actions.Continue)
             {
                 if (string.IsNullOrEmpty(transformHistoryDto.SecondTask))
                 {
-                    result += $"Continuando trabajando en {transformHistoryDto.FirstTask.Trim()}.";
+                    result += $"Continuando trabajando en {transformHistoryDto.FirstTask.TrimEnd('.').Trim()}.";
                 }
                 else
                 {
-                    result += $"Continuando trabajando en {transformHistoryDto.FirstTask.Trim()} y además estuve trabajando en {transformHistoryDto.SecondTask.Trim()}.";
+                    result += $"Continuando trabajando en {transformHistoryDto.FirstTask.Trim()} y además estuve trabajando en {transformHistoryDto.SecondTask.TrimEnd('.').Trim()}.";
                 }
             }
             else if (transformHistoryDto.Actions == Actions.End)
             {
                 if (string.IsNullOrEmpty(transformHistoryDto.SecondTask))
                 {
-                    result += $"Terminando de trabajar en {transformHistoryDto.FirstTask.Trim()}.";
+                    result += $"Terminando de trabajar en {transformHistoryDto.FirstTask.TrimEnd('.').Trim()}.";
                 }
                 else
                 {
-                    result += $"Terminando de trabajar en {transformHistoryDto.FirstTask.Trim()} y además estuve trabajando en {transformHistoryDto.SecondTask.Trim()}.";
+                    result += $"Terminando de trabajar en {transformHistoryDto.FirstTask.Trim()} y además estuve trabajando en {transformHistoryDto.SecondTask.TrimEnd('.').Trim()}.";
                 }
             }
             else
             {
                 if (string.IsNullOrEmpty(transformHistoryDto.SecondTask))
                 {
-                    result += $"Estuve trabajando en {transformHistoryDto.FirstTask.Trim()}.";
+                    result += $"Estuve trabajando en {transformHistoryDto.FirstTask.TrimEnd('.').Trim()}.";
                 }
                 else
                 {
-                    result += $"Estuve trabajando en {transformHistoryDto.FirstTask.Trim()} y además estuve trabajando en {transformHistoryDto.SecondTask.Trim()}.";
+                    result += $"Estuve trabajando en {transformHistoryDto.FirstTask.Trim()} y además estuve trabajando en {transformHistoryDto.SecondTask.TrimEnd('.').Trim()}.";
                 }
             }
 
